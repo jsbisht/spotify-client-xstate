@@ -1,0 +1,6 @@
+var scopes = 'playlist-read-collaborative user-top-read';
+str = 'https://accounts.spotify.com/authorize' +
+  '?response_type=code' +
+  '&client_id=' + '' +
+  (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+  '&redirect_uri=' + encodeURIComponent('http://localhost:1234');

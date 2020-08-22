@@ -1,0 +1,3 @@
+// both values are available from application dashboard on spotify
+Buffer.from("clientid:clientsecret").toString("base64")
+
