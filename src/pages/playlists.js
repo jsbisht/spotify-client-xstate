@@ -1,19 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { useSpotifyApis } from "../hooks/useSpotifyApis";
-import { PLAYLIST_URL } from "../constants/urls";
+import { FEATURED_PLAYLISTS_URL } from "../constants/urls";
+import { Link } from "react-router-dom";
 
-function UnstyledPlaylist() {
-  const { response, error, isLoading } = useSpotifyApis(PLAYLIST_URL);
+function UnstyledPlaylists() {
+  const { response, error, isLoading } = useSpotifyApis(FEATURED_PLAYLISTS_URL);
   const playlists = response?.playlists;
 
   return playlists ? (
     <div className="playlists" data-testid="playlists">
       {playlists?.items?.map((category) => (
-        <div className="category">
-          <img src={category.images[0].url} alt={category.name} />
-          <div className="category-name">{category.name}</div>
-        </div>
+        <Link to={`/playlist/${category.id}`}>
+          <div className="category">
+            <img src={category.images[0].url} alt={category.name} />
+            <div className="category-name">{category.name}</div>
+          </div>
+        </Link>
       ))}
     </div>
   ) : (
@@ -40,12 +43,12 @@ const StyledApp = styled.div`
   }
 `;
 
-function Playlist() {
+function Playlists() {
   return (
     <StyledApp>
-      <UnstyledPlaylist />
+      <UnstyledPlaylists />
     </StyledApp>
   );
 }
 
-export default Playlist;
+export default Playlists;
