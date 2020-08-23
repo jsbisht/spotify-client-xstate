@@ -4,7 +4,7 @@ import { useSpotifyApis } from "../hooks/useSpotifyApis";
 import { PLAYLIST_URL } from "../constants/urls";
 import { Link, useParams } from "react-router-dom";
 
-function UnstyledPlaylist() {
+function UnstyledTracks() {
   const { playlistId } = useParams();
   const { response, error, isLoading } = useSpotifyApis(
     `${PLAYLIST_URL}${playlistId}`
@@ -52,12 +52,12 @@ const StyledApp = styled.div`
   }
 `;
 
-function Playlist() {
+function Tracks() {
   return (
     <StyledApp>
-      <UnstyledPlaylist />
+      <UnstyledTracks />
     </StyledApp>
   );
 }
 
-export default Playlist;
+export default Tracks;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 // import Categories from "./categories";
 import Playlists from "./playlists";
-import Playlist from "./playlist";
+import Tracks from "./tracks";
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
           <Playlists />
         </Route>
         <Route exact path={`/playlist/:playlistId`}>
-          <Playlist />
+          <Tracks />
         </Route>
       </Switch>
     </Router>
